@@ -16,10 +16,13 @@ pipeline {
         }
 
         stage('Docker Deploy') {
-    steps {
-        sh '''
-        docker rm -f cicd-container || true
-        docker run -d -p 3000:3000 --name cicd-container cicd-app
-        '''
+            steps {
+                sh '''
+                docker rm -f cicd-container || true
+                docker run -d -p 3000:3000 --name cicd-container cicd-app
+                '''
+            }
+        }
+
     }
-}
+} 
